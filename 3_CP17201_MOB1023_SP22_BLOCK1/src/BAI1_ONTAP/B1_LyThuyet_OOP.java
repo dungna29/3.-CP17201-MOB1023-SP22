@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package BAI1_ONTAP_KeThua;
+package BAI1_ONTAP;
 
 import java.util.ArrayList;
 import java.util.List;
