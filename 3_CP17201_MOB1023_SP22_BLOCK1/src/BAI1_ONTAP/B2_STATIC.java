@@ -25,7 +25,7 @@ Khối static: Được sử dụng để khởi tạo thành viên dữ liệu 
     b2.method1();
 
     method1();
-    //Khi gọi trức tiếp phương thức static mới gọi cho các phương thức static
+     //Khi gọi trực tiếp phương thức static thì phải cùng là static thì mới gọi được hoặc phải khởi tạo lớp để gọi
   }
 
   static void method1() {

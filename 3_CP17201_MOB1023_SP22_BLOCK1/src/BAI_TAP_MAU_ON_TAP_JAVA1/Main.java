@@ -35,7 +35,9 @@ public class Main {//GUI
             System.out.println("4. In DS");
             System.out.println("5. Tìm Kiếm");
             System.out.println("6. Thoát");
-          } while (true);
+            System.out.println("Mời bạn chọn chức năng: ");
+            choice = sc.nextLine();
+          } while (!choice.equals("6"));
 
           break;
         case "2":
