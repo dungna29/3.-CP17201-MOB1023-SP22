@@ -19,6 +19,7 @@ public class Main {//GUI
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     String choice;
+    ISinhVienService iSinhVienService = new SinhVienService();
     while (true) {
       System.out.println("Quản lý Sinh Viên và Giảng Viên");
       System.out.println("1. Quản lý Sinh Viên");
@@ -37,6 +38,26 @@ public class Main {//GUI
             System.out.println("6. Thoát");
             System.out.println("Mời bạn chọn chức năng: ");
             choice = sc.nextLine();
+            switch (choice) {
+              case "1":
+                System.out.println(iSinhVienService.add());
+                break;
+              case "2":
+                System.out.println(iSinhVienService.edit());
+                break;
+              case "3":
+                System.out.println(iSinhVienService.delete());
+                break;
+              case "4":
+                iSinhVienService.printLstSV();
+                break;
+              case "5":
+                System.out.println(iSinhVienService.find());
+
+                break;
+              default:
+                System.out.println("CN không tồn tại");
+            }
           } while (!choice.equals("6"));
 
           break;

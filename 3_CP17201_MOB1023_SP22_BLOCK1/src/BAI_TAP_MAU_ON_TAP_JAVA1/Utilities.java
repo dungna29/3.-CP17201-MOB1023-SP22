@@ -7,6 +7,8 @@ package BAI_TAP_MAU_ON_TAP_JAVA1;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.text.Normalizer;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -40,7 +42,20 @@ public class Utilities {
     Tên: Nguyễn Mạnh Dũng
     Msv: dungnmPH01
    */
-  public String getMSV(String fullName) {
-    return "dungnmPH01";
+  public String getMSV(String fullName, int maxID) {
+    String[] arrFullName = fullName.split("\\s+");
+    var name = vietHoaTu(arrFullName[arrFullName.length - 1]);//Dũng
+    for (int i = 0; i < arrFullName.length-1; i++) {
+       name += String.valueOf(arrFullName[i].charAt(0)).toUpperCase();//DũngNM
+    }
+ 
+    name += "PH" + String.valueOf(maxID);
+    return unAccent(name);//DungnNMPH01
+  }
+
+  public String unAccent(String s) {//Convert từ tiếng việt có dấu về tiếng việt 0 dấu
+    String temp = Normalizer.normalize(s, Normalizer.Form.NFD);
+    Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
+    return pattern.matcher(temp).replaceAll("").replaceAll("Đ", "D").replace("đ", "");
   }
 }
