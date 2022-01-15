@@ -42,14 +42,13 @@ public class Utilities {
     Tên: Nguyễn Mạnh Dũng
     Msv: dungnmPH01
    */
-  public String getMSV(String fullName, int maxID) {
+  public String getMa(String fullName, int maxID, int loaiTk) {
     String[] arrFullName = fullName.split("\\s+");
     var name = vietHoaTu(arrFullName[arrFullName.length - 1]);//Dũng
-    for (int i = 0; i < arrFullName.length-1; i++) {
-       name += String.valueOf(arrFullName[i].charAt(0)).toUpperCase();//DũngNM
+    for (int i = 0; i < arrFullName.length - 1; i++) {
+      name += String.valueOf(arrFullName[i].charAt(0)).toUpperCase();//DũngNM
     }
- 
-    name += "PH" + String.valueOf(maxID);
+    name += loaiTk == 0 ? "PH" : "" + String.valueOf(maxID);
     return unAccent(name);//DungnNMPH01
   }
 

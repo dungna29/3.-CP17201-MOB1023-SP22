@@ -50,7 +50,7 @@ public class SinhVienService implements ISinhVienService {
         tempsdt = _sc.nextLine();
       } while (!_utilities.checkSo(tempsdt));//Check số khi nhập
       _sinhVien.setSdt(tempsdt);
-      _sinhVien.setMsv(_utilities.getMSV(_sinhVien.getTen(), _sinhVien.getId()));
+      _sinhVien.setMsv(_utilities.getMa(_sinhVien.getTen(), _sinhVien.getId(), 0));
       //Mã sinh viên tự sinh các bạn nên viết ở bên _utilities không nên bắt người dùng nhập vào
       System.out.println("Chọn ngành ");
       System.out.println("1. JAVA");
