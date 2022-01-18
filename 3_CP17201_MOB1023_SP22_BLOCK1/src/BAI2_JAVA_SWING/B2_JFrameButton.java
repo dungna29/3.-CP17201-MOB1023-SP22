@@ -136,7 +136,6 @@ public class B2_JFrameButton extends javax.swing.JFrame {
   }//GEN-LAST:event_btn_RedActionPerformed
 
   private void btn_NyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_NyActionPerformed
-
     int dapAn1;
     while (true) {
       dapAn1 = JOptionPane.showConfirmDialog(this, "Em có muốn làm người yêu anh không?", "Hỏi người yêu", JOptionPane.YES_NO_OPTION);
