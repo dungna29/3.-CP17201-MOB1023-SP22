@@ -93,6 +93,7 @@ public class B3_JFrame_Tong_Hop extends javax.swing.JFrame {
     txt_Ns = new javax.swing.JTextField();
     txt_Tuoi = new javax.swing.JTextField();
     txt_GioiTinh = new javax.swing.JTextField();
+    btn_Logout = new javax.swing.JButton();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -150,6 +151,14 @@ public class B3_JFrame_Tong_Hop extends javax.swing.JFrame {
 
     txt_GioiTinh.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
 
+    btn_Logout.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+    btn_Logout.setText("Logout");
+    btn_Logout.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        btn_LogoutActionPerformed(evt);
+      }
+    });
+
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
     layout.setHorizontalGroup(
@@ -159,7 +168,11 @@ public class B3_JFrame_Tong_Hop extends javax.swing.JFrame {
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addComponent(lbl_ShowTen)
           .addGroup(layout.createSequentialGroup()
-            .addComponent(jLabel1)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addComponent(jLabel1)
+              .addGroup(layout.createSequentialGroup()
+                .addGap(62, 62, 62)
+                .addComponent(btn_Logout)))
             .addGap(18, 18, 18)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
               .addGroup(layout.createSequentialGroup()
@@ -183,7 +196,7 @@ public class B3_JFrame_Tong_Hop extends javax.swing.JFrame {
                 .addComponent(rdb_Nu)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cbc_NamNu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-        .addContainerGap(190, Short.MAX_VALUE))
+        .addContainerGap(181, Short.MAX_VALUE))
     );
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,9 +214,6 @@ public class B3_JFrame_Tong_Hop extends javax.swing.JFrame {
         .addComponent(lbl_ShowTen)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addGroup(layout.createSequentialGroup()
-            .addGap(27, 27, 27)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-          .addGroup(layout.createSequentialGroup()
             .addGap(51, 51, 51)
             .addComponent(txt_TenL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -211,7 +221,12 @@ public class B3_JFrame_Tong_Hop extends javax.swing.JFrame {
             .addGap(18, 18, 18)
             .addComponent(txt_Tuoi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGap(18, 18, 18)
-            .addComponent(txt_GioiTinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addComponent(txt_GioiTinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+          .addGroup(layout.createSequentialGroup()
+            .addGap(27, 27, 27)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+              .addComponent(btn_Logout)
+              .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         .addContainerGap(87, Short.MAX_VALUE))
     );
 
@@ -241,6 +256,11 @@ public class B3_JFrame_Tong_Hop extends javax.swing.JFrame {
       txt_TenL.setText(String.valueOf(vc.get(0)));
       txt_Ns.setText(String.valueOf(vc.get(1)));
   }//GEN-LAST:event_tbl_CrushMouseClicked
+
+  private void btn_LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LogoutActionPerformed
+    new B4_Login().setVisible(true);//Hiển thị form cần lên
+    this.dispose();//Ẩn form hiện tại
+  }//GEN-LAST:event_btn_LogoutActionPerformed
 
   /**
    * @param args the command line arguments
@@ -278,6 +298,7 @@ public class B3_JFrame_Tong_Hop extends javax.swing.JFrame {
   }
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
+  private javax.swing.JButton btn_Logout;
   private javax.swing.JButton btn_add;
   private javax.swing.JComboBox<String> cbc_NamNu;
   private javax.swing.JComboBox<String> cbc_NamSinh;

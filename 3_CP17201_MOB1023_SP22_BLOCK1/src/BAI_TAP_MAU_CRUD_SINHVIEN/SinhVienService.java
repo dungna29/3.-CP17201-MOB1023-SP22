@@ -1,0 +1,108 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package BAI_TAP_MAU_CRUD_SINHVIEN;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+/**
+ *
+ * @author Dungna89
+ */
+//Code các chức năng CRUD đối tượng
+public class SinhVienService implements ISinhVienService {
+
+  Scanner _sc = new Scanner(System.in);
+  List<SinhVien> _lstSinhViens;
+  Utilities _utilities = new Utilities();
+  SinhVien _sinhVien;
+  String _input;
+
+  public SinhVienService() {
+    _lstSinhViens = new ArrayList<>();
+  }
+
+  @Override
+  public void fake5SV() {
+    _lstSinhViens.add(new SinhVien("dungnaPH001", "JAVA", 1, 1, "Nguyễn Anh Dũng", "01234756"));
+    _lstSinhViens.add(new SinhVien("dungnmPH002", "JAVA", 0, 2, "Nguyễn Mạnh Dũng", "01234756"));
+    _lstSinhViens.add(new SinhVien("dungnhPH003", "JAVA", 1, 3, "Nguyễn Hoàng Dũng", "01234756"));
+    _lstSinhViens.add(new SinhVien("namnaPH004", "JAVA", 1, 4, "Nguyễn Anh Nam", "01234756"));
+    _lstSinhViens.add(new SinhVien("dungnaPH005", "JAVA", 1, 5, "Nguyễn Anh Dũng", "01234756"));
+  }
+
+  @Override
+  public String add(SinhVien sv) {
+    if (sv == null) {
+      return "Thêm thất bại";
+    }
+    _lstSinhViens.add(sv);
+    return "Thêm thành công";
+  }
+
+  @Override
+  public String edit(SinhVien sv) {
+    var temp = getIndexByID(sv.getId());
+    if (temp == -1) {
+      return "Không tìm thấy";
+    }
+    _lstSinhViens.get(temp).setTen(_utilities.vietHoaFullname(sv.getTen()));
+    _lstSinhViens.get(temp).setMsv(_utilities.getMa(sv.getTen(), getMaxID(), 0));
+    _lstSinhViens.get(temp).setSdt(sv.getSdt());
+    _lstSinhViens.get(temp).setNganhHoc(sv.getNganhHoc());
+    return "Sửa thành công";
+  }
+
+  @Override
+  public String delete(int id) {
+    var temp = getIndexByID(id);
+    if (temp == -1) {
+      return "Không tìm thấy";
+    }
+    _lstSinhViens.remove(temp);
+    return "Đã tìm thấy";
+  }
+
+  @Override
+  public List<SinhVien> find(String text) {//Tìm kiếm gần đúng theo 2 điều kiện
+    var lstSVTemp = new ArrayList<SinhVien>();
+    for (SinhVien x : lstSVTemp) {
+      if (x.getMsv().startsWith(text) || x.getTen().startsWith(text)) {
+        lstSVTemp.add(x);
+      }
+    }
+    return lstSVTemp;
+  }
+
+  @Override
+  public List<SinhVien> getlstSinhVien() {
+    return _lstSinhViens;
+  }
+
+  public int getIndexByID(int id) {
+    for (int i = 0; i < _lstSinhViens.size(); i++) {
+      if (_lstSinhViens.get(i).getId() == id) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  public int getMaxID() {//Tìm ra khóa có số lớn nhất
+    if (_lstSinhViens.isEmpty()) {
+      return 1;
+    }
+    int max = _lstSinhViens.get(0).getId();
+    for (SinhVien x : _lstSinhViens) {
+      if (max < x.getId()) {
+        max = x.getId();
+      }
+    }
+    return max + 1;
+  }
+
+}
