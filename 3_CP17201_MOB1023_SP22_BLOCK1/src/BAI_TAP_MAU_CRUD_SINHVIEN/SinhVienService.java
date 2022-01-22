@@ -23,16 +23,16 @@ public class SinhVienService implements ISinhVienService {
   String _input;
 
   public SinhVienService() {
-    _lstSinhViens = new ArrayList<>();
+    _lstSinhViens = new ArrayList<>();    
   }
 
   @Override
   public void fake5SV() {
     _lstSinhViens.add(new SinhVien("dungnaPH001", "JAVA", 1, 1, "Nguyễn Anh Dũng", "01234756"));
-    _lstSinhViens.add(new SinhVien("dungnmPH002", "JAVA", 0, 2, "Nguyễn Mạnh Dũng", "01234756"));
-    _lstSinhViens.add(new SinhVien("dungnhPH003", "JAVA", 1, 3, "Nguyễn Hoàng Dũng", "01234756"));
-    _lstSinhViens.add(new SinhVien("namnaPH004", "JAVA", 1, 4, "Nguyễn Anh Nam", "01234756"));
-    _lstSinhViens.add(new SinhVien("dungnaPH005", "JAVA", 1, 5, "Nguyễn Anh Dũng", "01234756"));
+    _lstSinhViens.add(new SinhVien("dungnmPH002", "JAVA", 0, 2, "Trượt Mạnh Dũng", "01234756"));
+    _lstSinhViens.add(new SinhVien("dungnhPH003", "C#", 1, 3, "Lâm Hoàng Dũng", "01234756"));
+    _lstSinhViens.add(new SinhVien("namnaPH004", "C#", 1, 4, "Tống Anh Nam", "01234756"));
+    _lstSinhViens.add(new SinhVien("dungnaPH005", "JAVA", 1, 5, "Lê Anh Dũng", "01234756"));
   }
 
   @Override
@@ -46,6 +46,7 @@ public class SinhVienService implements ISinhVienService {
 
   @Override
   public String edit(SinhVien sv) {
+     
     var temp = getIndexByID(sv.getId());
     if (temp == -1) {
       return "Không tìm thấy";
@@ -59,6 +60,7 @@ public class SinhVienService implements ISinhVienService {
 
   @Override
   public String delete(int id) {
+     
     var temp = getIndexByID(id);
     if (temp == -1) {
       return "Không tìm thấy";
@@ -70,8 +72,8 @@ public class SinhVienService implements ISinhVienService {
   @Override
   public List<SinhVien> find(String text) {//Tìm kiếm gần đúng theo 2 điều kiện
     var lstSVTemp = new ArrayList<SinhVien>();
-    for (SinhVien x : lstSVTemp) {
-      if (x.getMsv().startsWith(text) || x.getTen().startsWith(text)) {
+    for (SinhVien x : _lstSinhViens) {
+      if (x.getMsv().toLowerCase().startsWith(text.toLowerCase()) || x.getTen().toLowerCase().startsWith(text.toLowerCase())) {
         lstSVTemp.add(x);
       }
     }

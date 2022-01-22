@@ -36,7 +36,6 @@ public class B3_JFrame_Tong_Hop extends javax.swing.JFrame {
     _vtcHeader.add("Năm sinh");
     _vtcHeader.add("Tuổi");
     _vtcHeader.add("Giới tính");
-
     tbl_Crush.setModel(new DefaultTableModel(_vtcHeader, 0));
   }
 

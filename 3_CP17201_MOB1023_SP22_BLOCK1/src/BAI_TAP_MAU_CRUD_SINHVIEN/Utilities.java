@@ -33,7 +33,7 @@ public class Utilities {
     return Fname;//Nguyễn Duy Thị Hà
   }
 
-  public String vietHoaTu(String name) {//YEN
+  private String vietHoaTu(String name) {//YEN
     var temp = name.trim().toLowerCase();//yen
     return String.valueOf(temp.charAt(0)).toUpperCase() + temp.substring(1);//=Yen
   }
@@ -49,7 +49,7 @@ public class Utilities {
     for (int i = 0; i < arrFullName.length - 1; i++) {
       name += String.valueOf(arrFullName[i].charAt(0)).toUpperCase();//DũngNM
     }
-    name += loaiTk == 0 ? "PH" : "" + String.valueOf(maxID);
+    name += "PH" + String.valueOf(maxID);
     return unAccent(name);//DungnNMPH01
   }
 
