@@ -95,16 +95,20 @@ public class SinhVienService implements ISinhVienService {
   }
 
   public int getMaxID() {//Tìm ra khóa có số lớn nhất
-    if (_lstSinhViens.isEmpty()) {
+//    if (_lstSinhViens.isEmpty()) {
+//      return 1;
+//    }
+    try {
+      int max = _lstSinhViens.get(0).getId();
+      for (SinhVien x : _lstSinhViens) {
+        if (max < x.getId()) {
+          max = x.getId();
+        }
+      }
+      return max + 1;
+    } catch (Exception e) {
       return 1;
     }
-    int max = _lstSinhViens.get(0).getId();
-    for (SinhVien x : _lstSinhViens) {
-      if (max < x.getId()) {
-        max = x.getId();
-      }
-    }
-    return max + 1;
   }
 
 }
