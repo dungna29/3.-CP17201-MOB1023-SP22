@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Buoi7_Thread;
+package BAI7_Thread;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,7 +28,10 @@ public class S2_Tao_Thread extends Thread {
   }
 
   public static void main(String[] args) {
+    //2 Luồng song song
     S2_Tao_Thread thread1 = new S2_Tao_Thread();
-    thread1.run();//Khởi động thread
+    thread1.start();//Khởi động thread
+    S2_Tao_Thread thread2 = new S2_Tao_Thread();
+    thread2.start();//Khởi động thread
   }
 }
