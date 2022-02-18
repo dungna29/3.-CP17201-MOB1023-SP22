@@ -11,6 +11,7 @@ package BAI7_Thread;
  */
 public class S1_Thread {
       /*
+    Dungnz29
         ❑Multitasking: Là khả năng chạy đồng thời nhiều
         chương trình cùng một lúc trên hệ điều hành.
         ❖Internet Explorer
