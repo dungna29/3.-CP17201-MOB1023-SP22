@@ -5,22 +5,11 @@
  */
 package BAI7_Thread;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author Dungna89
  */
-public class S2_Tao_Thread extends Thread {
-
-  public static void main(String[] args) {
-    //Thực hiện đa luồng
-    S2_Tao_Thread thread1 = new S2_Tao_Thread();
-    thread1.start();//Khởi động luồng lên
-    S2_Tao_Thread thread2 = new S2_Tao_Thread();
-    thread2.start();
-  }
+public class S3_TaoThread_Implement_Interface implements Runnable{
 
   @Override
   public void run() {
@@ -34,5 +23,11 @@ public class S2_Tao_Thread extends Thread {
      }
     }
   }
-
+  public static void main(String[] args) {
+    Thread thread1 = new Thread(new S3_TaoThread_Implement_Interface());
+    thread1.start();
+    Thread thread2 = new Thread(new S3_TaoThread_Implement_Interface());
+    thread2.start();
+  }
+  
 }
